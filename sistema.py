@@ -13,7 +13,7 @@ while True:
     print('Digite 2 para alterar tarefa')
     print('Digite 3 para deletar tarefa')
     print('Digite 4 para ver tarefas')
-    print('Digite 5 para \033[0;49;91msair\033[m')
+    print('Digite 5 para \033[0;49;91msalvar e sair\033[m')
     linha()
     opc = opcValida('Digite: ')
     linha()
@@ -77,4 +77,12 @@ while True:
         linha()
         time.sleep(2)
     elif opc == 5:
+        nomeArquivo = "tarefas.txt"
+        with open(nomeArquivo, "w") as arquivo:
+            for c in tarefas:
+                arquivo.write(f'{c[0]} {c[1]} {c[2]} {c[3]} {c[4]}\n')
+        linha()
+        print('\033[0;49;92mSalvo com sucesso, saindo...\033[m')
+        linha()
+
         break

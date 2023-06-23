@@ -59,7 +59,7 @@ def verificaOpcAlt():
         except:
             print('Número inválido.')
         else:
-            if opc>=1 and opc<=2:
+            if opc>=1 and opc<=3:
                 break
             else:
                 print('Opção não existe.')
@@ -107,6 +107,16 @@ def verificaProgresso():
     while True:
         try:
             opc = int(input('Digite o progresso da tarefa (0-100): '))
+        except:
+            print('Número inválido.')
+        else:
+            if opc>=0 and opc <=100:
+                return opc
+            
+def verNovoPro():
+    while True:
+        try:
+            opc = int(input('Digite o novo progresso da tarefa (0-100): '))
         except:
             print('Número inválido.')
         else:

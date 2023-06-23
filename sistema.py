@@ -33,6 +33,7 @@ while True:
         linha()
         print('Digite 1 para alterar o nome')
         print('Digite 2 para alterar a descrição')
+        print('Digite 3 para alterar o progresso')
         opcAlt = verificaOpcAlt()
         linha()
         if opcAlt == 1:
@@ -46,6 +47,12 @@ while True:
             for c in tarefas:
                 if c[0] == idAlt:
                     c[2] = novaBio
+                    break
+        elif opcAlt == 3:
+            novoPro = verNovoPro()
+            for c in tarefas:
+                if c[0] == idAlt:
+                    c[4] = novoPro
                     break
         print('\033[0;49;92mTarefa atualizada com sucesso!\033[m')
     elif opc == 3:

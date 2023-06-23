@@ -2,9 +2,34 @@ from funcoes import *
 import time
 from datetime import date
 
+tarefas = []
+linhas = []
+array1 = []
+id = 0
+array2 = []
+counter = 1
+nomeArquivo = "tarefas.txt"
+
+
+with open(nomeArquivo, "r") as arquivo:
+    conteudo = arquivo.readlines()
+
+for i in range(0, len(conteudo), 5):
+    id = int(conteudo[i].strip())
+    nome = conteudo[i+1].strip()
+    descricao = conteudo[i+2].strip()
+    inicio = conteudo[i+3].strip()
+    progresso = int(conteudo[i+4].strip())
+    
+    tarefa = [id, nome, descricao, inicio, progresso]
+    tarefas.append(tarefa)
+
+print(tarefas)
+
+
 dia_atual = date.today()
 data_formatada = dia_atual.strftime("%d/%m/%Y")
-tarefas = []
+
 while True:
     linha()
     print('\033[0;49;36mSistema de gerenciamento de tarefas\033[m')
@@ -18,10 +43,11 @@ while True:
     opc = opcValida('Digite: ')
     linha()
     if opc == 1:
+        id = len(tarefas)
         nome = verificaNome()
         bio = verificaBio()
         progresso = verificaProgresso()
-        p = [len(tarefas),nome,bio, data_formatada, progresso]
+        p = [id,nome,bio, data_formatada, progresso]
         tarefas.append(p)
         for c in tarefas:
             if c == p:
@@ -80,7 +106,7 @@ while True:
         nomeArquivo = "tarefas.txt"
         with open(nomeArquivo, "w") as arquivo:
             for c in tarefas:
-                arquivo.write(f'{c[0]} {c[1]} {c[2]} {c[3]} {c[4]}\n')
+                arquivo.write(f'{c[0]}\n {c[1]}\n {c[2]}\n {c[3]}\n {c[4]}\n')
         linha()
         print('\033[0;49;92mSalvo com sucesso, saindo...\033[m')
         linha()

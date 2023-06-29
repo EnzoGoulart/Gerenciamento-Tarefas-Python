@@ -122,3 +122,15 @@ def verNovoPro():
         else:
             if opc>=0 and opc <=100:
                 return opc
+
+def verCtz(txt):
+    while True:
+        try:
+            opc = str(input(txt))
+        except:
+            print('Ordem inválida, digite apenas s ou n.')
+        else:
+            if opc == 's' or opc =='n' or opc == 'S' or opc == 'N' or opc== 'SIM' or opc == "NAO" or opc == "sim" or opc == "nao" or opc=="Sim" or opc== "Nao":
+                return opc
+            else:
+                print('Ordem inválida, digite apenas s ou n.')
